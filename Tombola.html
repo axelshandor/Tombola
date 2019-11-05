@@ -1,0 +1,223 @@
+<html>
+
+<head>
+    <title>Tombola</title>
+    <link rel="stylesheet" type="text/css" href="tombola.css" />
+    <script type="text/javascript" language="JavaScript">
+        numeri = [];
+
+        function avvio() {
+            alert("Inizio della TOMBOLA di Taccone Shandor")
+        }
+
+        function genera() {
+
+            numero = Math.floor((Math.random() * 90) + 1);
+            while (numeri[numero - 1] == true) {
+                numero = Math.floor((Math.random() * 90) + 1);
+            }
+            numeri[numero - 1] = true;
+            document.getElementById("estratto").innerHTML = "Il Numero Estratto &egrave " + numero;
+            document.getElementById("nr" + numero).style.color = ("red");
+        }
+
+        function ambo() {
+            document.getElementById("premio").innerHTML = "SI VA PER LA TERNA";
+            var ambop = prompt("Il vincitore dell'ambo");
+            document.getElementById("1").innerHTML = ambop;
+        }
+
+        function terna() {
+            document.getElementById("premio").innerHTML = "SI VA PER LA QUATERNA";
+            var ternap = prompt("Il vincitore della terna");
+            document.getElementById("2").innerHTML = ternap;
+            document.getElementById("22").innerHTML = denaroterna;
+        }
+
+        function quaterna() {
+            document.getElementById("premio").innerHTML = "SI VA PER LA CINQUINA";
+            var quaternap = prompt("Il vincitore della quaterna");
+            document.getElementById("3").innerHTML = quaternap;
+        }
+
+        function cinquina() {
+            document.getElementById("premio").innerHTML = "SI VA PER LA TOMBOLA";
+            var cinquinap = prompt("Il vincitore della cinquina");
+            document.getElementById("4").innerHTML = cinquinap;
+        }
+
+        function tombola() {
+            var persona = prompt("Il nome del vincitore della TOMBOLA: ")
+            alert("COMPLIMENTI " + persona + "..! HAI VINTO LA TOMBOLA!")
+            document.getElementById("premio").innerHTML = "Premere RESET per avviare una nuova partita!";
+
+
+        }
+
+        function visualizza() {
+            var denaro = document.getElementById("sold").value;
+            var denarotombola = denaro / 2;
+            var denarocinquina = denarotombola / 2;
+            var denaroquaterna = denarocinquina / 2;
+            var denaroterna = denaroquaterna / 2;
+            var denaroambo = denaroterna / 2;
+            document.getElementById("monete").innerHTML = "I premi sono: Ambo: (" + denaroambo + ") Terna: (" + denaroterna + ") Quaterna: (" + denaroquaterna + ") Cinquina: (" + denarocinquina + ") Tombola: (" + denarotombola + ")";
+
+
+
+        }
+    </script>
+
+    <script type="text/javascript" src="/EditNatale/tempesta.js"></script>
+
+</head>
+
+<body onload="avvio()">
+    <p id="estratto">Il Numero Estratto &egrave; </p>
+    <table align="left">
+        <td id="nr1">1</td>
+        <td id="nr2">2</td>
+        <td id="nr3">3</td>
+        <td id="nr4">4</td>
+        <td id="nr5">5</td>
+        <td id="nr6">6</td>
+        <td id="nr7">7</td>
+        <td id="nr8">8</td>
+        <td id="nr9">9</td>
+        <td id="nr10">10</td>
+        </tr>
+        <tr>
+            <td id="nr11">11</td>
+            <td id="nr12">12</td>
+            <td id="nr13">13</td>
+            <td id="nr14">14</td>
+            <td id="nr15">15</td>
+            <td id="nr16">16</td>
+            <td id="nr17">17</td>
+            <td id="nr18">18</td>
+            <td id="nr19">19</td>
+            <td id="nr20">20</td>
+        </tr>
+        <tr>
+            <td id="nr21">21</td>
+            <td id="nr22">22</td>
+            <td id="nr23">23</td>
+            <td id="nr24">24</td>
+            <td id="nr25">25</td>
+            <td id="nr26">26</td>
+            <td id="nr27">27</td>
+            <td id="nr28">28</td>
+            <td id="nr29">29</td>
+            <td id="nr30">30</td>
+        </tr>
+        <tr>
+            <td id="nr31">31</td>
+            <td id="nr32">32</td>
+            <td id="nr33">33</td>
+            <td id="nr34">34</td>
+            <td id="nr35">35</td>
+            <td id="nr36">36</td>
+            <td id="nr37">37</td>
+            <td id="nr38">38</td>
+            <td id="nr39">39</td>
+            <td id="nr40">40</td>
+        </tr>
+        <tr>
+            <td id="nr41">41</td>
+            <td id="nr42">42</td>
+            <td id="nr43">43</td>
+            <td id="nr44">44</td>
+            <td id="nr45">45</td>
+            <td id="nr46">46</td>
+            <td id="nr47">47</td>
+            <td id="nr48">48</td>
+            <td id="nr49">49</td>
+            <td id="nr50">50</td>
+        </tr>
+        <tr>
+            <td id="nr51">51</td>
+            <td id="nr52">52</td>
+            <td id="nr53">53</td>
+            <td id="nr54">54</td>
+            <td id="nr55">55</td>
+            <td id="nr56">56</td>
+            <td id="nr57">57</td>
+            <td id="nr58">58</td>
+            <td id="nr59">59</td>
+            <td id="nr60">60</td>
+        </tr>
+        <tr>
+            <td id="nr61">61</td>
+            <td id="nr62">62</td>
+            <td id="nr63">63</td>
+            <td id="nr64">64</td>
+            <td id="nr65">65</td>
+            <td id="nr66">66</td>
+            <td id="nr67">67</td>
+            <td id="nr68">68</td>
+            <td id="nr69">69</td>
+            <td id="nr70">70</td>
+        </tr>
+        <tr>
+            <td id="nr71">71</td>
+            <td id="nr72">72</td>
+            <td id="nr73">73</td>
+            <td id="nr74">74</td>
+            <td id="nr75">75</td>
+            <td id="nr76">76</td>
+            <td id="nr77">77</td>
+            <td id="nr78">78</td>
+            <td id="nr79">79</td>
+            <td id="nr80">80</td>
+        </tr>
+        <tr>
+            <td id="nr81">81</td>
+            <td id="nr82">82</td>
+            <td id="nr83">83</td>
+            <td id="nr84">84</td>
+            <td id="nr85">85</td>
+            <td id="nr86">86</td>
+            <td id="nr87">87</td>
+            <td id="nr88">88</td>
+            <td id="nr89">89</td>
+            <td id="nr90">90</td>
+        </tr>
+
+    </table>
+
+    <form>
+        <div>Il vincitore dell'ambo</div>
+        <div id="1"> Giocatore </div><br><br>
+        <div>Il vincitore della terna</div>
+        <div id="2"> Giocatore </div><br><br>
+        <div>Il vincitore della quaterna</div>
+        <div id="3"> Giocatore </div><br><br>
+        <div>Il vincitore della cinquina</div>
+        <div id="4"> Giocatore </div><br><br>
+        <br><br><br><br><br><br><br>
+
+        <input type="button" class="button" value="Estrai" onclick="genera()">
+        <input type="button" class="button" value="Reset" onclick="location.reload()">
+
+    </form>
+
+
+    <h3> Il montepremi totale <input type="text" id="sold"></input><br><br><input type="button" value="Visualizza Premi" onclick="visualizza()"></input>
+    </h3>
+    <h3 id="monete">I premi sono:
+
+        <h1 id="premio"> SI VA PER L'AMBO</h1>
+        <h2> Taccone Shandor</h2>
+
+        <input type="button" value="Ambo" onclick="ambo()" ondblclick="this.disabled='true'">
+        <input type="button" value="Terna" onclick="terna()" ondblclick="this.disabled='true'">
+        <input type="button" value="Quaterna" onclick="quaterna()" ondblclick="this.disabled='true'">
+        <input type="button" value="Cinquina" onclick="cinquina()" ondblclick="this.disabled='true'">
+        <input type="button" value="TOMBOLA!" onclick="tombola()">
+</body>
+
+
+
+
+
+</html>

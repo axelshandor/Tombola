@@ -3,88 +3,26 @@
 <head>
     <title>Tombola</title>
     <link rel="stylesheet" type="text/css" href="tombola.css" />
-    <script type="text/javascript" language="JavaScript">
-        numeri = [];
-
-        function avvio() {
-            alert("Inizio della TOMBOLA di Taccone Shandor")
-        }
-
-        function genera() {
-
-            numero = Math.floor((Math.random() * 90) + 1);
-            while (numeri[numero - 1] == true) {
-                numero = Math.floor((Math.random() * 90) + 1);
-            }
-            numeri[numero - 1] = true;
-            document.getElementById("estratto").innerHTML = "Il Numero Estratto &egrave " + numero;
-            document.getElementById("nr" + numero).style.color = ("red");
-        }
-
-        function ambo() {
-            document.getElementById("premio").innerHTML = "SI VA PER LA TERNA";
-            var ambop = prompt("Il vincitore dell'ambo");
-            document.getElementById("1").innerHTML = ambop;
-        }
-
-        function terna() {
-            document.getElementById("premio").innerHTML = "SI VA PER LA QUATERNA";
-            var ternap = prompt("Il vincitore della terna");
-            document.getElementById("2").innerHTML = ternap;
-            document.getElementById("22").innerHTML = denaroterna;
-        }
-
-        function quaterna() {
-            document.getElementById("premio").innerHTML = "SI VA PER LA CINQUINA";
-            var quaternap = prompt("Il vincitore della quaterna");
-            document.getElementById("3").innerHTML = quaternap;
-        }
-
-        function cinquina() {
-            document.getElementById("premio").innerHTML = "SI VA PER LA TOMBOLA";
-            var cinquinap = prompt("Il vincitore della cinquina");
-            document.getElementById("4").innerHTML = cinquinap;
-        }
-
-        function tombola() {
-            var persona = prompt("Il nome del vincitore della TOMBOLA: ")
-            alert("COMPLIMENTI " + persona + "..! HAI VINTO LA TOMBOLA!")
-            document.getElementById("premio").innerHTML = "Premere RESET per avviare una nuova partita!";
-
-
-        }
-
-        function visualizza() {
-            var denaro = document.getElementById("sold").value;
-            var denarotombola = denaro / 2;
-            var denarocinquina = denarotombola / 2;
-            var denaroquaterna = denarocinquina / 2;
-            var denaroterna = denaroquaterna / 2;
-            var denaroambo = denaroterna / 2;
-            document.getElementById("monete").innerHTML = "I premi sono: Ambo: (" + denaroambo + ") Terna: (" + denaroterna + ") Quaterna: (" + denaroquaterna + ") Cinquina: (" + denarocinquina + ") Tombola: (" + denarotombola + ")";
-
-
-
-        }
-    </script>
-
-    <script type="text/javascript" src="/EditNatale/tempesta.js"></script>
+    <script type="text/javascript" src="Tombola.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
 
 </head>
 
 <body onload="avvio()">
-    <p id="estratto">Il Numero Estratto &egrave; </p>
+    <div id="viewStorico">Storico</div>
+    <div id="estratto" class="estrattoClass">Numeri estratti</div>
     <table align="left">
-        <td id="nr1">1</td>
-        <td id="nr2">2</td>
-        <td id="nr3">3</td>
-        <td id="nr4">4</td>
-        <td id="nr5">5</td>
-        <td id="nr6">6</td>
-        <td id="nr7">7</td>
-        <td id="nr8">8</td>
-        <td id="nr9">9</td>
-        <td id="nr10">10</td>
+        <tr>
+            <td id="nr1">1</td>
+            <td id="nr2">2</td>
+            <td id="nr3">3</td>
+            <td id="nr4">4</td>
+            <td id="nr5">5</td>
+            <td id="nr6">6</td>
+            <td id="nr7">7</td>
+            <td id="nr8">8</td>
+            <td id="nr9">9</td>
+            <td id="nr10">10</td>
         </tr>
         <tr>
             <td id="nr11">11</td>
@@ -187,37 +125,37 @@
 
     <form>
         <div>Il vincitore dell'ambo</div>
-        <div id="1"> Giocatore </div><br><br>
+        <div id="1"> . </div><br><br>
         <div>Il vincitore della terna</div>
-        <div id="2"> Giocatore </div><br><br>
+        <div id="2"> . </div><br><br>
         <div>Il vincitore della quaterna</div>
-        <div id="3"> Giocatore </div><br><br>
+        <div id="3"> . </div><br><br>
         <div>Il vincitore della cinquina</div>
-        <div id="4"> Giocatore </div><br><br>
+        <div id="4"> . </div><br><br>
         <br><br><br><br><br><br><br>
 
-        <input type="button" class="button" value="Estrai" onclick="genera()">
-        <input type="button" class="button" value="Reset" onclick="location.reload()">
+        <input type="button" class="btn-principale" value="Estrai" name="estrai" onclick="genera()">
+        <input type="button" class="btn-principale" value="Reset" onclick="location.reload()">
 
     </form>
+    <div class="grid-container">
+        <div class="grid-item-right">
+            <h3> Il montepremi totale <input type="text" id="sold"></input><br><br><input type="button"
+                    value="Visualizza Premi" class="btn-secondario" onclick="visualizza()"></input>
+            </h3>
+            <h3 id="monete"> I premi sono: </h3>
+        </div>
+        <div class="grid-item-left">
+            <br>
+            <h1 id="premio"> SI VA PER L'AMBO</h1>
+            <input type="button" class="btn-secondario" value="Ambo" onclick="this.disabled='true'; ambo();" >
+            <input type="button" class="btn-secondario" value="Terna" onclick="this.disabled='true'; terna();">
+            <input type="button" class="btn-secondario" value="Quaterna" onclick="this.disabled='true'; quaterna();">
+            <input type="button" class="btn-secondario" value="Cinquina" onclick="this.disabled='true'; cinquina();">
+            <input type="button" class="btn-secondario" value="TOMBOLA!" onclick="tombola()">
 
-
-    <h3> Il montepremi totale <input type="text" id="sold"></input><br><br><input type="button" value="Visualizza Premi" onclick="visualizza()"></input>
-    </h3>
-    <h3 id="monete">I premi sono:
-
-        <h1 id="premio"> SI VA PER L'AMBO</h1>
-        <h2> Taccone Shandor</h2>
-
-        <input type="button" value="Ambo" onclick="ambo()" ondblclick="this.disabled='true'">
-        <input type="button" value="Terna" onclick="terna()" ondblclick="this.disabled='true'">
-        <input type="button" value="Quaterna" onclick="quaterna()" ondblclick="this.disabled='true'">
-        <input type="button" value="Cinquina" onclick="cinquina()" ondblclick="this.disabled='true'">
-        <input type="button" value="TOMBOLA!" onclick="tombola()">
+        </div>
+    </div>
 </body>
-
-
-
-
 
 </html>
